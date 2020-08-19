@@ -1,2 +1,2 @@
 # twitter-clone
-Twitter Clone
+Python Django Twitter Clone
