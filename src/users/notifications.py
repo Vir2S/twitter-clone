@@ -11,3 +11,8 @@ from .models import Profile
 def create_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
+
+
+@receiver(save_post, sender=User)
+def save_profile(sender, instance, **kwargs):
+    instance.profile.save()
