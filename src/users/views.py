@@ -62,3 +62,19 @@ def profile(request):
         profile_form = ProfileUpdateForm(instance=request.user.profile)
 
     return render(request, 'users/profile.html', {'user_form': user_form, 'profile_form': profile_form})
+
+
+@login_required
+def search_view(request):
+
+    if request.method == 'POST':
+
+        search = request.POST.get('search')
+        print(search)
+
+        search_results = User.objects.filter(username_contains=search)
+        context = {
+            'search_results': search_results
+        }
+
+        return render(request, 'users/search_results.html', context=context)
