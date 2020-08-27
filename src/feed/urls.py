@@ -8,7 +8,7 @@ from .views import (
     UserPostListView,
     FollowsListView,
     FollowersListView,
-    postpreference)
+    post_preference)
 
 urlpatterns = [
     path('', PostListView.as_view(), name='feed-home'),
@@ -19,5 +19,5 @@ urlpatterns = [
     path('post/<int:pk>/del/', PostDeleteView.as_view(), name='post-delete'),
     path('user/<str:username>/follows', FollowsListView.as_view(), name='user-follows'),
     path('user/<str:username>/followers', FollowersListView.as_view(), name='user-followers'),
-    path('post/<int:postid>/preference/<int:userpreference>', postpreference, name='postpreference'),
+    path('post/<int:post_id>/preference/<int:user_preference>', post_preference, name='post_preference'),
 ]
